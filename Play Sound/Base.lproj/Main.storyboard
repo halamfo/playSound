@@ -1,25 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Play_Sound" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="miniVolume.png" maximumValueImage="maxVolume.png" translatesAutoresizingMaskIntoConstraints="NO" id="8FZ-60-vym">
+                                <rect key="frame" x="14" y="269" width="292" height="31"/>
+                                <connections>
+                                    <action selector="sldvolume:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vo8-fu-ckt"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Grb-Ng-XZy">
+                                <rect key="frame" x="145" y="236" width="30" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Hc2-b0-6cf"/>
+                                    <constraint firstAttribute="width" constant="30" id="gPP-9j-TOm"/>
+                                </constraints>
+                                <state key="normal" image="play.png"/>
+                                <connections>
+                                    <action selector="actionplay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pSk-Qh-NgE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8FZ-60-vym" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0lg-3c-8zz"/>
+                            <constraint firstItem="Grb-Ng-XZy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7UI-hY-BIQ"/>
+                            <constraint firstItem="8FZ-60-vym" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dp2-OA-gqy"/>
+                            <constraint firstItem="8FZ-60-vym" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MLW-AL-HQH"/>
+                            <constraint firstItem="8FZ-60-vym" firstAttribute="top" secondItem="Grb-Ng-XZy" secondAttribute="bottom" constant="8" id="X1h-Eb-BQx"/>
+                            <constraint firstItem="8FZ-60-vym" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="flu-mj-gRJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btn_play" destination="Grb-Ng-XZy" id="w0i-qI-ajb"/>
+                        <outlet property="sldvolume" destination="8FZ-60-vym" id="VuK-AE-aYv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="229" y="289"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="maxVolume.png" width="30" height="30"/>
+        <image name="miniVolume.png" width="30" height="30"/>
+        <image name="play.png" width="256" height="256"/>
+    </resources>
 </document>
